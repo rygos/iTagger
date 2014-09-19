@@ -22,17 +22,42 @@ Partial Class frmMAin
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.fbd = New System.Windows.Forms.FolderBrowserDialog()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.cmdOpenPath = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(12, 14)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(294, 20)
+        Me.TextBox1.TabIndex = 0
+        '
+        'cmdOpenPath
+        '
+        Me.cmdOpenPath.Location = New System.Drawing.Point(312, 12)
+        Me.cmdOpenPath.Name = "cmdOpenPath"
+        Me.cmdOpenPath.Size = New System.Drawing.Size(48, 23)
+        Me.cmdOpenPath.TabIndex = 1
+        Me.cmdOpenPath.Text = "..."
+        Me.cmdOpenPath.UseVisualStyleBackColor = True
         '
         'frmMAin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(636, 455)
+        Me.ClientSize = New System.Drawing.Size(721, 523)
+        Me.Controls.Add(Me.cmdOpenPath)
+        Me.Controls.Add(Me.TextBox1)
         Me.Name = "frmMAin"
         Me.Text = "iTagger"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
+    Friend WithEvents fbd As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents cmdOpenPath As System.Windows.Forms.Button
 
 End Class
