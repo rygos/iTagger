@@ -29,11 +29,12 @@ Partial Class frmAlbumSelection
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'lvAlbums
         '
-        Me.lvAlbums.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.lvAlbums.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
         Me.lvAlbums.Location = New System.Drawing.Point(12, 12)
         Me.lvAlbums.Name = "lvAlbums"
         Me.lvAlbums.Size = New System.Drawing.Size(386, 255)
@@ -75,6 +76,10 @@ Partial Class frmAlbumSelection
         '
         Me.ColumnHeader4.Text = "Copyright"
         '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "AlbumID"
+        '
         'frmAlbumSelection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -96,4 +101,5 @@ Partial Class frmAlbumSelection
     Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
     Friend WithEvents cmdOK As System.Windows.Forms.Button
     Friend WithEvents cmdCancel As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
 End Class
