@@ -87,6 +87,12 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTagVerifyer.Designer.vb">
+      <DependentUpon>frmTagVerifyer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTagVerifyer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modAPI.vb" />
     <Compile Include="modMisc.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTagVerifyer.resx">
+      <DependentUpon>frmTagVerifyer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
