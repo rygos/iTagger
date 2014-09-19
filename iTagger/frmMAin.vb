@@ -6,7 +6,5 @@
 
     Private Sub cmdOpenPath_Click(sender As Object, e As EventArgs) Handles cmdOpenPath.Click
         fbd.Description = "Ordner öffnen..."
-
-
     End Sub
 End Class
