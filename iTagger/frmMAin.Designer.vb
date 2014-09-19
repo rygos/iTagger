@@ -34,6 +34,7 @@ Partial Class frmMAin
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'TextBox1
@@ -54,7 +55,9 @@ Partial Class frmMAin
         '
         'lvFiles
         '
-        Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
+        Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
+        Me.lvFiles.FullRowSelect = True
+        Me.lvFiles.GridLines = True
         Me.lvFiles.Location = New System.Drawing.Point(12, 40)
         Me.lvFiles.Name = "lvFiles"
         Me.lvFiles.Size = New System.Drawing.Size(697, 439)
@@ -94,6 +97,10 @@ Partial Class frmMAin
         '
         Me.ColumnHeader8.Text = "Dateiname"
         '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Kommentar"
+        '
         'frmMAin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -120,5 +127,6 @@ Partial Class frmMAin
     Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
 
 End Class
