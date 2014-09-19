@@ -27,6 +27,7 @@
                 lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
                            tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
                            tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
+
             End With
         Next
 
@@ -35,5 +36,17 @@
         For Each oSubDir In odir.GetDirectories()
             FillList(oSubDir)
         Next
+    End Sub
+
+    Private Sub cmdGetTags_Click(sender As Object, e As EventArgs) Handles cmdGetTags.Click
+        ReDim selectedFiles(lvFiles.SelectedItems.Count - 1)
+        For i = 0 To lvFiles.SelectedItems.Count - 1
+            selectedFiles(i) = lvFiles.SelectedItems(i).SubItems(7).ToString
+
+        Next
+
+
+        frmAlbumSelection.Show()
+        frmAlbumSelection.FillList(lvFiles.SelectedItems(0).SubItems(0).Text & " " & lvFiles.SelectedItems(0).SubItems(3).Text)
     End Sub
 End Class
