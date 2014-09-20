@@ -46,6 +46,7 @@ Module modAPI
         Dim country As String
         Dim currency As String
         Dim primaryGenreName As String
+        Dim copyright As String
     End Structure
 
     ''' <summary>
@@ -138,6 +139,7 @@ Module modAPI
                     .trackTimeMillis = If(IsNothing(item("trackTimeMillis")), 1, CInt(item("trackTimeMillis").ToString))
                     .trackViewUrl = If(IsNothing(item("trackViewUrl")), "", item("trackViewUrl").ToString)
                     .wrapperType = item("wrapperType").ToString
+                    .copyright = item("copyright").ToString
                 End With
 
 
