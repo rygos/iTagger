@@ -9,14 +9,14 @@
 
         If r.result_count <> 0 Then
             For Each i In r.tracks
-                lvwAddItem(lvAlbums, i.collectionArtistName, i.collectionCensoredName, i.trackCount, i.collectionId)
+                lvwAddItem(lvAlbums, i.collectionArtistName, i.collectionCensoredName, i.trackCount, i.copyright, i.collectionId)
             Next
         End If
 
     End Sub
 
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
-        Dim tColId As Integer = CInt(lvAlbums.SelectedItems(0).SubItems(3).Text)
+        Dim tColId As Integer = CInt(lvAlbums.SelectedItems(0).SubItems(4).Text)
 
         If tColId <> 0 Then
             MsgBox(tColId)

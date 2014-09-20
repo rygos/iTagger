@@ -11,6 +11,8 @@
             oDir = New IO.DirectoryInfo(fbd.SelectedPath)
 
             FillList(oDir)
+
+            setlblSelection(lvFiles.SelectedItems.Count, lvFiles.Items.Count)
         End If
     End Sub
 
@@ -52,4 +54,13 @@
         frmAlbumSelection.Show()
         frmAlbumSelection.FillList(lvFiles.SelectedItems(0).SubItems(0).Text & " " & lvFiles.SelectedItems(0).SubItems(3).Text)
     End Sub
+
+    Private Sub setlblSelection(SelectedFiles As Integer, TotalFiles As Integer)
+        lblSelection.Text = "Ausgewählte Dateien: " & SelectedFiles & " von " & TotalFiles
+    End Sub
+
+    Private Sub lvFiles_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles lvFiles.ItemSelectionChanged
+        setlblSelection(lvFiles.SelectedItems.Count, lvFiles.Items.Count)
+    End Sub
+
 End Class

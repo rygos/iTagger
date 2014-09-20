@@ -139,7 +139,7 @@ Module modAPI
                     .trackTimeMillis = If(IsNothing(item("trackTimeMillis")), 1, CInt(item("trackTimeMillis").ToString))
                     .trackViewUrl = If(IsNothing(item("trackViewUrl")), "", item("trackViewUrl").ToString)
                     .wrapperType = item("wrapperType").ToString
-                    .copyright = item("copyright").ToString
+                    .copyright = If(IsNothing(item("copyright")), "", item("copyright").ToString)
                 End With
 
 

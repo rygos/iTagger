@@ -36,6 +36,7 @@ Partial Class frmMAin
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdGetTags = New System.Windows.Forms.Button()
+        Me.lblSelection = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -111,11 +112,21 @@ Partial Class frmMAin
         Me.cmdGetTags.Text = "Tags laden..."
         Me.cmdGetTags.UseVisualStyleBackColor = True
         '
+        'lblSelection
+        '
+        Me.lblSelection.AutoSize = True
+        Me.lblSelection.Location = New System.Drawing.Point(9, 485)
+        Me.lblSelection.Name = "lblSelection"
+        Me.lblSelection.Size = New System.Drawing.Size(150, 13)
+        Me.lblSelection.TabIndex = 4
+        Me.lblSelection.Text = "Ausgewählte Dateien: 0 von 0"
+        '
         'frmMAin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(721, 523)
+        Me.Controls.Add(Me.lblSelection)
         Me.Controls.Add(Me.cmdGetTags)
         Me.Controls.Add(Me.lvFiles)
         Me.Controls.Add(Me.cmdOpenPath)
@@ -140,5 +151,6 @@ Partial Class frmMAin
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
     Friend WithEvents cmdGetTags As System.Windows.Forms.Button
+    Friend WithEvents lblSelection As System.Windows.Forms.Label
 
 End Class
