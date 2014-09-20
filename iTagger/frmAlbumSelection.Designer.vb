@@ -23,42 +23,25 @@ Partial Class frmAlbumSelection
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lvAlbums = New System.Windows.Forms.ListView()
-        Me.cmdOK = New System.Windows.Forms.Button()
-        Me.cmdCancel = New System.Windows.Forms.Button()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cmdOK = New System.Windows.Forms.Button()
+        Me.cmdCancel = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lvAlbums
         '
         Me.lvAlbums.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.lvAlbums.FullRowSelect = True
         Me.lvAlbums.Location = New System.Drawing.Point(12, 12)
         Me.lvAlbums.Name = "lvAlbums"
         Me.lvAlbums.Size = New System.Drawing.Size(386, 255)
         Me.lvAlbums.TabIndex = 0
         Me.lvAlbums.UseCompatibleStateImageBehavior = False
         Me.lvAlbums.View = System.Windows.Forms.View.Details
-        '
-        'cmdOK
-        '
-        Me.cmdOK.Location = New System.Drawing.Point(323, 273)
-        Me.cmdOK.Name = "cmdOK"
-        Me.cmdOK.Size = New System.Drawing.Size(75, 23)
-        Me.cmdOK.TabIndex = 1
-        Me.cmdOK.Text = "OK"
-        Me.cmdOK.UseVisualStyleBackColor = True
-        '
-        'cmdCancel
-        '
-        Me.cmdCancel.Location = New System.Drawing.Point(12, 273)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
-        Me.cmdCancel.TabIndex = 2
-        Me.cmdCancel.Text = "Abbrechen"
-        Me.cmdCancel.UseVisualStyleBackColor = True
         '
         'ColumnHeader1
         '
@@ -79,6 +62,24 @@ Partial Class frmAlbumSelection
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "AlbumID"
+        '
+        'cmdOK
+        '
+        Me.cmdOK.Location = New System.Drawing.Point(323, 273)
+        Me.cmdOK.Name = "cmdOK"
+        Me.cmdOK.Size = New System.Drawing.Size(75, 23)
+        Me.cmdOK.TabIndex = 1
+        Me.cmdOK.Text = "OK"
+        Me.cmdOK.UseVisualStyleBackColor = True
+        '
+        'cmdCancel
+        '
+        Me.cmdCancel.Location = New System.Drawing.Point(12, 273)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCancel.TabIndex = 2
+        Me.cmdCancel.Text = "Abbrechen"
+        Me.cmdCancel.UseVisualStyleBackColor = True
         '
         'frmAlbumSelection
         '

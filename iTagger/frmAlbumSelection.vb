@@ -19,7 +19,11 @@
         Dim tColId As Integer = CInt(lvAlbums.SelectedItems(0).SubItems(4).Text)
 
         If tColId <> 0 Then
-            MsgBox(tColId)
+            frmTagVerifyer.Show()
+            frmTagVerifyer.FillData(tColId)
+            Me.Close()
+        Else
+            MsgBox("Es wurde kein Album ausgewählt.")
         End If
 
 

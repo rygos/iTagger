@@ -164,7 +164,7 @@ Module modAPI
             sURL = sURL & "&id=" & (sTerm)
         End If
 
-        sURL = sURL & "&country=" & sCountry
+        sURL = sURL & "&country=" & sCountry & "&entity=song"
 
         Dim wc As New WebClient
         wc.Encoding = System.Text.Encoding.UTF8
@@ -221,16 +221,17 @@ Module modAPI
                     'Empfehle eine neue Funktion dafür.
                     .primaryGenreName = If(IsNothing(item("primaryGenreName")), "", item("primaryGenreName").ToString)
                     .releaseDate = item("releaseDate").ToString
-                    .trackCensoredName = item("trackCensoredName").ToString
-                    .trackCount = item("trackCount").ToString
-                    .trackExplicitness = item("trackExplicitness").ToString
-                    .trackId = item("trackId").ToString
-                    .trackName = item("trackName").ToString
-                    .trackNumber = item("trackNumber").ToString
+                    .trackCensoredName = If(IsNothing(item("trackCensoredName")), "", item("trackCensoredName").ToString)
+                    .trackCount = If(IsNothing(item("trackCount")), "", item("trackCount").ToString)
+                    .trackExplicitness = If(IsNothing(item("trackExplicitness")), "", item("trackExplicitness").ToString)
+                    .trackId = If(IsNothing(item("trackId")), 0, CInt(item("trackId").ToString))
+                    .trackName = If(IsNothing(item("trackName")), "", item("trackName").ToString)
+                    .trackNumber = If(IsNothing(item("trackNumber")), 0, CInt(item("trackNumber").ToString))
                     .trackPrice = If(IsNothing(item("trackPrice")), "", item("trackPrice").ToString)
-                    .trackTimeMillis = item("trackTimeMillis").ToString
-                    .trackViewUrl = item("trackViewUrl").ToString
-                    .wrapperType = item("wrapperType").ToString
+                    .trackTimeMillis = If(IsNothing(item("trackTimeMillis")), 0, CInt(item("trackTimeMillis").ToString))
+                    .trackViewUrl = If(IsNothing(item("trackViewUrl")), "", item("trackViewUrl").ToString)
+                    .wrapperType = If(IsNothing(item("wrapperType")), "", item("wrapperType").ToString)
+                    .copyright = If(IsNothing(item("copyright")), "", item("copyright").ToString)
                 End With
 
 
