@@ -47,7 +47,7 @@
         If lvFiles.SelectedItems.Count <> 0 Then
             ReDim selectedFiles(lvFiles.SelectedItems.Count - 1)
             For i = 0 To lvFiles.SelectedItems.Count - 1
-                selectedFiles(i) = lvFiles.SelectedItems(i).SubItems(7).ToString
+                selectedFiles(i) = lvFiles.SelectedItems(i).SubItems(7).Text
             Next
             frmAlbumSelection.Show()
             frmAlbumSelection.FillList(lvFiles.SelectedItems(0).SubItems(0).Text & " " & lvFiles.SelectedItems(0).SubItems(3).Text)

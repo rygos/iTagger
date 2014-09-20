@@ -69,10 +69,13 @@ Module modAPI
         If sTerm = vbNullString Then
             Return Nothing
         Else
+            sTerm = sTerm.Replace(" ", "+")
             sURL = sURL & "&term=" & (sTerm)
         End If
 
         sURL = sURL & "&country=" & sCountry & "&limit=" & iLimit & "&entity=" & sEntity
+
+        Debug.Print(sURL)
 
         Dim wc As New WebClient
         wc.Encoding = System.Text.Encoding.UTF8
@@ -161,10 +164,13 @@ Module modAPI
         If sTerm = vbNullString Then
             Return Nothing
         Else
+            sTerm = sTerm.Replace(" ", "+")
             sURL = sURL & "&id=" & (sTerm)
         End If
 
         sURL = sURL & "&country=" & sCountry & "&entity=song"
+
+        Debug.Print(sURL)
 
         Dim wc As New WebClient
         wc.Encoding = System.Text.Encoding.UTF8
