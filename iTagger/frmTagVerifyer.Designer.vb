@@ -48,6 +48,7 @@ Partial Class frmTagVerifyer
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cmdOK = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -213,6 +214,7 @@ Partial Class frmTagVerifyer
         '
         Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
         Me.lvFiles.FullRowSelect = True
+        Me.lvFiles.LabelEdit = True
         Me.lvFiles.Location = New System.Drawing.Point(480, 19)
         Me.lvFiles.MultiSelect = False
         Me.lvFiles.Name = "lvFiles"
@@ -257,11 +259,21 @@ Partial Class frmTagVerifyer
         '
         Me.ColumnHeader9.Text = "ZielTrack"
         '
+        'cmdOK
+        '
+        Me.cmdOK.Location = New System.Drawing.Point(698, 532)
+        Me.cmdOK.Name = "cmdOK"
+        Me.cmdOK.Size = New System.Drawing.Size(75, 23)
+        Me.cmdOK.TabIndex = 4
+        Me.cmdOK.Text = "OK"
+        Me.cmdOK.UseVisualStyleBackColor = True
+        '
         'frmTagVerifyer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 564)
+        Me.Controls.Add(Me.cmdOK)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -303,4 +315,5 @@ Partial Class frmTagVerifyer
     Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents cmdOK As System.Windows.Forms.Button
 End Class
