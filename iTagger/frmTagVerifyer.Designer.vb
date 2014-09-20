@@ -35,9 +35,23 @@ Partial Class frmTagVerifyer
         Me.txtArtist = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.picCover = New System.Windows.Forms.PictureBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.lvTracks = New System.Windows.Forms.ListView()
+        Me.lvFiles = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -163,11 +177,93 @@ Partial Class frmTagVerifyer
         Me.picCover.TabIndex = 0
         Me.picCover.TabStop = False
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.lvFiles)
+        Me.GroupBox3.Controls.Add(Me.lvTracks)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 240)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(761, 286)
+        Me.GroupBox3.TabIndex = 2
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Tracks"
+        '
+        'cmdCancel
+        '
+        Me.cmdCancel.Location = New System.Drawing.Point(12, 532)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCancel.TabIndex = 3
+        Me.cmdCancel.Text = "Abbrechen"
+        Me.cmdCancel.UseVisualStyleBackColor = True
+        '
+        'lvTracks
+        '
+        Me.lvTracks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.lvTracks.FullRowSelect = True
+        Me.lvTracks.Location = New System.Drawing.Point(9, 19)
+        Me.lvTracks.MultiSelect = False
+        Me.lvTracks.Name = "lvTracks"
+        Me.lvTracks.Size = New System.Drawing.Size(465, 261)
+        Me.lvTracks.TabIndex = 0
+        Me.lvTracks.UseCompatibleStateImageBehavior = False
+        Me.lvTracks.View = System.Windows.Forms.View.Details
+        '
+        'lvFiles
+        '
+        Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
+        Me.lvFiles.FullRowSelect = True
+        Me.lvFiles.Location = New System.Drawing.Point(480, 19)
+        Me.lvFiles.MultiSelect = False
+        Me.lvFiles.Name = "lvFiles"
+        Me.lvFiles.Size = New System.Drawing.Size(275, 261)
+        Me.lvFiles.TabIndex = 1
+        Me.lvFiles.UseCompatibleStateImageBehavior = False
+        Me.lvFiles.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Interpret"
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Titel"
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Länge"
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Track"
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "CD"
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Genre"
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Länge"
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Datei"
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "ZielTrack"
+        '
         'frmTagVerifyer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(751, 542)
+        Me.ClientSize = New System.Drawing.Size(787, 564)
+        Me.Controls.Add(Me.cmdCancel)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -177,6 +273,7 @@ Partial Class frmTagVerifyer
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -193,4 +290,17 @@ Partial Class frmTagVerifyer
     Friend WithEvents txtArtist As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents picCover As System.Windows.Forms.PictureBox
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents cmdCancel As System.Windows.Forms.Button
+    Friend WithEvents lvFiles As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents lvTracks As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
 End Class

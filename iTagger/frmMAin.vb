@@ -44,15 +44,16 @@
     End Sub
 
     Private Sub cmdGetTags_Click(sender As Object, e As EventArgs) Handles cmdGetTags.Click
-        ReDim selectedFiles(lvFiles.SelectedItems.Count - 1)
-        For i = 0 To lvFiles.SelectedItems.Count - 1
-            selectedFiles(i) = lvFiles.SelectedItems(i).SubItems(7).ToString
-
-        Next
-
-
-        frmAlbumSelection.Show()
-        frmAlbumSelection.FillList(lvFiles.SelectedItems(0).SubItems(0).Text & " " & lvFiles.SelectedItems(0).SubItems(3).Text)
+        If lvFiles.SelectedItems.Count <> 0 Then
+            ReDim selectedFiles(lvFiles.SelectedItems.Count - 1)
+            For i = 0 To lvFiles.SelectedItems.Count - 1
+                selectedFiles(i) = lvFiles.SelectedItems(i).SubItems(7).ToString
+            Next
+            frmAlbumSelection.Show()
+            frmAlbumSelection.FillList(lvFiles.SelectedItems(0).SubItems(0).Text & " " & lvFiles.SelectedItems(0).SubItems(3).Text)
+        Else
+            MsgBox("Es muss Mindestens eine Datei ausgewählt werden.")
+        End If
     End Sub
 
     Private Sub setlblSelection(SelectedFiles As Integer, TotalFiles As Integer)
