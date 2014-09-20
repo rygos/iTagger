@@ -16,6 +16,12 @@
     End Sub
 
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
+        Dim tColId As Integer = CInt(lvAlbums.SelectedItems(0).SubItems(3).Text)
+
+        If tColId <> 0 Then
+            MsgBox(tColId)
+        End If
+
 
     End Sub
 

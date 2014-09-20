@@ -6,11 +6,12 @@
 
     Private Sub cmdOpenPath_Click(sender As Object, e As EventArgs) Handles cmdOpenPath.Click
         fbd.Description = "Ordner öffnen..."
-        fbd.ShowDialog()
-        Dim oDir As IO.DirectoryInfo
-        oDir = New IO.DirectoryInfo(fbd.SelectedPath)
+        If Not fbd.ShowDialog() = Windows.Forms.DialogResult.Cancel Then
+            Dim oDir As IO.DirectoryInfo
+            oDir = New IO.DirectoryInfo(fbd.SelectedPath)
 
-        FillList(oDir)
+            FillList(oDir)
+        End If
     End Sub
 
     Private Sub FillList(odir As IO.DirectoryInfo)
