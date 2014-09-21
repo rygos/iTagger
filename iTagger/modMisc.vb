@@ -21,7 +21,6 @@ Module modMisc
     Public Function cPic_Taglib_vb(Pic As TagLib.IPicture) As System.Drawing.Image
         Dim ms As New MemoryStream(Pic.Data.Data)
         Dim image As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
-
         Return image
     End Function
 

@@ -45,18 +45,26 @@ Public Class frmTagVerifyer
             Dim tn As Integer = CInt(lvFiles.Items(i).SubItems(2).Text)
             With Tagdata.tracks(tn)
                 tf.Tag.Album = .collectionCensoredName
-                tf.Tag.AlbumArtists(0) = Tagdata.tracks(0).artistiName 'Der AlbumArtist wird aus den AlbumInformationen geladen
-                tf.Tag.Performers(0) = .artistiName
+                tf.Tag.AlbumArtists = New String() {Tagdata.tracks(0).artistiName} 'Der AlbumArtist wird aus den AlbumInformationen geladen
+                tf.Tag.Performers = New String() {.artistiName}
                 tf.Tag.Comment = "TagWithiTagger"
                 tf.Tag.Copyright = .copyright
                 tf.Tag.Disc = .discNumber
                 tf.Tag.DiscCount = .discCount
-                tf.Tag.Genres(0) = .primaryGenreName
+                tf.Tag.Genres = New String() {.primaryGenreName}
                 tf.Tag.Title = .trackName
                 tf.Tag.Track = .trackNumber
                 tf.Tag.TrackCount = .trackCount
                 tf.Tag.Year = .releaseDate.Year
+                picCover.Image.Save(Application.StartupPath & "\tmpcov.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                tf.Tag.Pictures = New TagLib.IPicture() {TagLib.Picture.CreateFromPath(Application.StartupPath & "\tmpcov.jpg")}
+                tf.Tag.Pictures(0).Type = TagLib.PictureType.FrontCover
             End With
+
+            Dim customTag As TagLib.Mpeg4.AppleTag = tf.GetTag(TagLib.TagTypes.Apple)
+            Dim vector = New TagLib.ByteVector()
+            vector.Add(CByte(10))
+            customTag.SetData("stik", vector, CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsData))
 
             tf.Save()
             tf.Dispose()
