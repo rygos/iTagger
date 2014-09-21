@@ -59,12 +59,13 @@ Public Class frmTagVerifyer
                 picCover.Image.Save(Application.StartupPath & "\tmpcov.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                 tf.Tag.Pictures = New TagLib.IPicture() {TagLib.Picture.CreateFromPath(Application.StartupPath & "\tmpcov.jpg")}
                 tf.Tag.Pictures(0).Type = TagLib.PictureType.FrontCover
-            End With
 
-            Dim customTag As TagLib.Mpeg4.AppleTag = tf.GetTag(TagLib.TagTypes.Apple)
-            Dim vector = New TagLib.ByteVector()
-            vector.Add(CByte(10))
-            customTag.SetData("stik", vector, CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsData))
+                'Dim atag As TagLib.Mpeg4.AppleTag = DirectCast(Tag, TagLib.Mpeg4.AppleTag)
+                'Dim newbox1 As New TagLib.Mpeg4.AppleDataBox(TagLib.ByteVector.FromString("TEST Long Description", TagLib.StringType.UTF8), CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsText))
+                'Dim newbox2 As New TagLib.Mpeg4.AppleDataBox(TagLib.ByteVector.FromString("TEST TV Show", TagLib.StringType.UTF8), CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsText))
+                'atag.SetData(BOXTYPE_LDES, New TagLib.Mpeg4.AppleDataBox() {newbox1})
+                'atag.SetData(BOXTYPE_TVSH, New TagLib.Mpeg4.AppleDataBox() {newbox2})
+            End With
 
             tf.Save()
             tf.Dispose()

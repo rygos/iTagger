@@ -36,18 +36,18 @@ Partial Class frmTagVerifyer
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.picCover = New System.Windows.Forms.PictureBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.cmdCancel = New System.Windows.Forms.Button()
-        Me.lvTracks = New System.Windows.Forms.ListView()
         Me.lvFiles = New System.Windows.Forms.ListView()
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lvTracks = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cmdCancel = New System.Windows.Forms.Button()
         Me.cmdOK = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -189,27 +189,6 @@ Partial Class frmTagVerifyer
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Tracks"
         '
-        'cmdCancel
-        '
-        Me.cmdCancel.Location = New System.Drawing.Point(12, 532)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
-        Me.cmdCancel.TabIndex = 3
-        Me.cmdCancel.Text = "Abbrechen"
-        Me.cmdCancel.UseVisualStyleBackColor = True
-        '
-        'lvTracks
-        '
-        Me.lvTracks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
-        Me.lvTracks.FullRowSelect = True
-        Me.lvTracks.Location = New System.Drawing.Point(9, 19)
-        Me.lvTracks.MultiSelect = False
-        Me.lvTracks.Name = "lvTracks"
-        Me.lvTracks.Size = New System.Drawing.Size(465, 261)
-        Me.lvTracks.TabIndex = 0
-        Me.lvTracks.UseCompatibleStateImageBehavior = False
-        Me.lvTracks.View = System.Windows.Forms.View.Details
-        '
         'lvFiles
         '
         Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
@@ -223,13 +202,40 @@ Partial Class frmTagVerifyer
         Me.lvFiles.UseCompatibleStateImageBehavior = False
         Me.lvFiles.View = System.Windows.Forms.View.Details
         '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Länge"
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Datei"
+        Me.ColumnHeader8.Width = 111
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "ZielTrack"
+        '
+        'lvTracks
+        '
+        Me.lvTracks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.lvTracks.FullRowSelect = True
+        Me.lvTracks.Location = New System.Drawing.Point(9, 19)
+        Me.lvTracks.MultiSelect = False
+        Me.lvTracks.Name = "lvTracks"
+        Me.lvTracks.Size = New System.Drawing.Size(465, 261)
+        Me.lvTracks.TabIndex = 0
+        Me.lvTracks.UseCompatibleStateImageBehavior = False
+        Me.lvTracks.View = System.Windows.Forms.View.Details
+        '
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Interpret"
+        Me.ColumnHeader1.Width = 85
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Titel"
+        Me.ColumnHeader2.Width = 91
         '
         'ColumnHeader3
         '
@@ -247,17 +253,14 @@ Partial Class frmTagVerifyer
         '
         Me.ColumnHeader6.Text = "Genre"
         '
-        'ColumnHeader7
+        'cmdCancel
         '
-        Me.ColumnHeader7.Text = "Länge"
-        '
-        'ColumnHeader8
-        '
-        Me.ColumnHeader8.Text = "Datei"
-        '
-        'ColumnHeader9
-        '
-        Me.ColumnHeader9.Text = "ZielTrack"
+        Me.cmdCancel.Location = New System.Drawing.Point(12, 532)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCancel.TabIndex = 3
+        Me.cmdCancel.Text = "Abbrechen"
+        Me.cmdCancel.UseVisualStyleBackColor = True
         '
         'cmdOK
         '
