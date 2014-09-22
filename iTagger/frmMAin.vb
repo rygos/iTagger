@@ -9,11 +9,18 @@
         If Not fbd.ShowDialog() = Windows.Forms.DialogResult.Cancel Then
             Dim oDir As IO.DirectoryInfo
             oDir = New IO.DirectoryInfo(fbd.SelectedPath)
-
+            txtPath.Text = oDir.FullName
             FillList(oDir)
 
             setlblSelection(lvFiles.SelectedItems.Count, lvFiles.Items.Count)
         End If
+    End Sub
+
+    Public Sub removeTaggedItems()
+        For Each i In lvFiles.SelectedItems
+            Debug.Print(i.ToString)
+            lvFiles.Items.Remove(i)
+        Next
     End Sub
 
     Private Sub FillList(odir As IO.DirectoryInfo)
@@ -28,10 +35,9 @@
             If oFile.Extension = ".mp3" Or oFile.Extension = ".m4a" Then
                 With oFile
                     Dim tf As TagLib.File = TagLib.File.Create(oFile.FullName)
-                    lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
-                               tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
-                               tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
-
+                        lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
+                                   tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
+                                   tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
                 End With
             End If
         Next
@@ -64,4 +70,8 @@
         setlblSelection(lvFiles.SelectedItems.Count, lvFiles.Items.Count)
     End Sub
 
+    Private Sub cmdReload_Click(sender As Object, e As EventArgs) Handles cmdReload.Click
+        Dim odir As IO.DirectoryInfo = New IO.DirectoryInfo(txtPath.Text)
+        FillList(odir)
+    End Sub
 End Class

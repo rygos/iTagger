@@ -23,7 +23,7 @@ Partial Class frmMAin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.fbd = New System.Windows.Forms.FolderBrowserDialog()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtPath = New System.Windows.Forms.TextBox()
         Me.cmdOpenPath = New System.Windows.Forms.Button()
         Me.lvFiles = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -37,14 +37,16 @@ Partial Class frmMAin
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdGetTags = New System.Windows.Forms.Button()
         Me.lblSelection = New System.Windows.Forms.Label()
+        Me.cmdReload = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'txtPath
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 14)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(294, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.txtPath.Enabled = False
+        Me.txtPath.Location = New System.Drawing.Point(12, 14)
+        Me.txtPath.Name = "txtPath"
+        Me.txtPath.Size = New System.Drawing.Size(294, 20)
+        Me.txtPath.TabIndex = 0
         '
         'cmdOpenPath
         '
@@ -121,16 +123,26 @@ Partial Class frmMAin
         Me.lblSelection.TabIndex = 4
         Me.lblSelection.Text = "Ausgewählte Dateien: 0 von 0"
         '
+        'cmdReload
+        '
+        Me.cmdReload.Location = New System.Drawing.Point(366, 12)
+        Me.cmdReload.Name = "cmdReload"
+        Me.cmdReload.Size = New System.Drawing.Size(75, 23)
+        Me.cmdReload.TabIndex = 5
+        Me.cmdReload.Text = "Reload"
+        Me.cmdReload.UseVisualStyleBackColor = True
+        '
         'frmMAin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(721, 523)
+        Me.Controls.Add(Me.cmdReload)
         Me.Controls.Add(Me.lblSelection)
         Me.Controls.Add(Me.cmdGetTags)
         Me.Controls.Add(Me.lvFiles)
         Me.Controls.Add(Me.cmdOpenPath)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtPath)
         Me.Name = "frmMAin"
         Me.Text = "iTagger"
         Me.ResumeLayout(False)
@@ -138,7 +150,7 @@ Partial Class frmMAin
 
     End Sub
     Friend WithEvents fbd As System.Windows.Forms.FolderBrowserDialog
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPath As System.Windows.Forms.TextBox
     Friend WithEvents cmdOpenPath As System.Windows.Forms.Button
     Friend WithEvents lvFiles As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
@@ -152,5 +164,6 @@ Partial Class frmMAin
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
     Friend WithEvents cmdGetTags As System.Windows.Forms.Button
     Friend WithEvents lblSelection As System.Windows.Forms.Label
+    Friend WithEvents cmdReload As System.Windows.Forms.Button
 
 End Class
