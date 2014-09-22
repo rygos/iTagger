@@ -31,6 +31,7 @@ Public Class frmTagVerifyer
             Dim tf As TagLib.File = TagLib.File.Create(fi.FullName)
 
             lvwAddItem(lvFiles, tf.Properties.Duration.ToString, fi.Name, tf.Tag.Track)
+
         Next
     End Sub
 
@@ -112,6 +113,17 @@ Public Class frmTagVerifyer
 
         frmMAin.removeTaggedItems()
         Me.Close()
+
+    End Sub
+
+    Private Sub TracknummerZuweisenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TracknummerZuweisenToolStripMenuItem.Click
+        Dim TrackNum As String = InputBox("Bitte hier die Tracknummer eingeben:", "Neue Tracknummer zuweisen...")
+        If TrackNum = vbNullString Then
+
+        Else
+            lvFiles.SelectedItems(0).SubItems(2).Text = TrackNum
+        End If
+
 
     End Sub
 End Class

@@ -30,6 +30,7 @@ Partial Class frmAlbumSelection
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdOK = New System.Windows.Forms.Button()
         Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.cmdNewSearch = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lvAlbums
@@ -81,11 +82,21 @@ Partial Class frmAlbumSelection
         Me.cmdCancel.Text = "Abbrechen"
         Me.cmdCancel.UseVisualStyleBackColor = True
         '
+        'cmdNewSearch
+        '
+        Me.cmdNewSearch.Location = New System.Drawing.Point(148, 273)
+        Me.cmdNewSearch.Name = "cmdNewSearch"
+        Me.cmdNewSearch.Size = New System.Drawing.Size(104, 23)
+        Me.cmdNewSearch.TabIndex = 3
+        Me.cmdNewSearch.Text = "Neues Suchwort"
+        Me.cmdNewSearch.UseVisualStyleBackColor = True
+        '
         'frmAlbumSelection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(410, 308)
+        Me.Controls.Add(Me.cmdNewSearch)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.cmdOK)
         Me.Controls.Add(Me.lvAlbums)
@@ -103,4 +114,5 @@ Partial Class frmAlbumSelection
     Friend WithEvents cmdOK As System.Windows.Forms.Button
     Friend WithEvents cmdCancel As System.Windows.Forms.Button
     Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents cmdNewSearch As System.Windows.Forms.Button
 End Class

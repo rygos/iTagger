@@ -35,9 +35,12 @@
             If oFile.Extension = ".mp3" Or oFile.Extension = ".m4a" Then
                 With oFile
                     Dim tf As TagLib.File = TagLib.File.Create(oFile.FullName)
+                    Dim com As String = tf.Tag.Comment
+                    If com <> "TagWithiTagger" Then
                         lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
                                    tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
                                    tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
+                    End If
                 End With
             End If
         Next

@@ -22,6 +22,7 @@ Partial Class frmTagVerifyer
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtComment = New System.Windows.Forms.TextBox()
@@ -49,10 +50,13 @@ Partial Class frmTagVerifyer
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdCancel = New System.Windows.Forms.Button()
         Me.cmdOK = New System.Windows.Forms.Button()
+        Me.lvFilesContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.TracknummerZuweisenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        Me.lvFilesContext.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -192,6 +196,7 @@ Partial Class frmTagVerifyer
         'lvFiles
         '
         Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
+        Me.lvFiles.ContextMenuStrip = Me.lvFilesContext
         Me.lvFiles.FullRowSelect = True
         Me.lvFiles.LabelEdit = True
         Me.lvFiles.Location = New System.Drawing.Point(480, 19)
@@ -271,6 +276,18 @@ Partial Class frmTagVerifyer
         Me.cmdOK.Text = "OK"
         Me.cmdOK.UseVisualStyleBackColor = True
         '
+        'lvFilesContext
+        '
+        Me.lvFilesContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TracknummerZuweisenToolStripMenuItem})
+        Me.lvFilesContext.Name = "lvFilesContext"
+        Me.lvFilesContext.Size = New System.Drawing.Size(201, 48)
+        '
+        'TracknummerZuweisenToolStripMenuItem
+        '
+        Me.TracknummerZuweisenToolStripMenuItem.Name = "TracknummerZuweisenToolStripMenuItem"
+        Me.TracknummerZuweisenToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.TracknummerZuweisenToolStripMenuItem.Text = "Tracknummer zuweisen"
+        '
         'frmTagVerifyer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -289,6 +306,7 @@ Partial Class frmTagVerifyer
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        Me.lvFilesContext.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -319,4 +337,6 @@ Partial Class frmTagVerifyer
     Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
     Friend WithEvents cmdOK As System.Windows.Forms.Button
+    Friend WithEvents lvFilesContext As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents TracknummerZuweisenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
