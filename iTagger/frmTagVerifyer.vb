@@ -2,6 +2,7 @@
 
 Public Class frmTagVerifyer
     Dim Tagdata As str_search_result
+    Dim AlbumGenre As String
     Private Sub frmTagVerifyer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -53,7 +54,12 @@ Public Class frmTagVerifyer
                 tf.Tag.Copyright = .copyright
                 tf.Tag.Disc = .discNumber
                 tf.Tag.DiscCount = .discCount
-                tf.Tag.Genres = New String() {.primaryGenreName}
+                If .primaryGenreName = vbNullString Then
+                    tf.Tag.Genres = New String() {txtGenre.Text}
+                Else
+                    tf.Tag.Genres = New String() {.primaryGenreName}
+                End If
+
                 tf.Tag.Title = .trackName
                 tf.Tag.Track = .trackNumber
                 tf.Tag.TrackCount = .trackCount
