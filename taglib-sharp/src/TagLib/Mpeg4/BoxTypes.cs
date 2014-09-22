@@ -48,6 +48,7 @@ namespace TagLib.Mpeg4 {
 		public static readonly ReadOnlyByteVector Co64 = "co64";
 		public static readonly ReadOnlyByteVector Cpil = "cpil";
 		public static readonly ReadOnlyByteVector Cprt = "cprt";
+        public static readonly ReadOnlyByteVector Cnid = "cnid";
 		public static readonly ReadOnlyByteVector Data = "data";
 		public static readonly ReadOnlyByteVector Day  = AppleTag.FixId ("day");
 		public static readonly ReadOnlyByteVector Disk = "disk";
@@ -68,6 +69,7 @@ namespace TagLib.Mpeg4 {
 		public static readonly ReadOnlyByteVector Mvhd = "mvhd";
 		public static readonly ReadOnlyByteVector Nam  = AppleTag.FixId ("nam");
 		public static readonly ReadOnlyByteVector Name = "name";
+        public static readonly ReadOnlyByteVector Rtng = "rtng";
 		public static readonly ReadOnlyByteVector Skip = "skip";
 		public static readonly ReadOnlyByteVector Soaa = "soaa"; // Album Artist Sort
 		public static readonly ReadOnlyByteVector Soar = "soar"; // Performer Sort

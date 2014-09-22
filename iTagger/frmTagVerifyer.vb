@@ -41,6 +41,7 @@ Public Class frmTagVerifyer
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
 
         For i = 0 To lvFiles.Items.Count - 1
+            TagLib.ByteVector.UseBrokenLatin1Behavior = True
             Dim tf As TagLib.File = TagLib.File.Create(selectedFiles(i))
             Dim tn As Integer = CInt(lvFiles.Items(i).SubItems(2).Text)
             With Tagdata.tracks(tn)
@@ -56,15 +57,53 @@ Public Class frmTagVerifyer
                 tf.Tag.Track = .trackNumber
                 tf.Tag.TrackCount = .trackCount
                 tf.Tag.Year = .releaseDate.Year
+
                 picCover.Image.Save(Application.StartupPath & "\tmpcov.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                 tf.Tag.Pictures = New TagLib.IPicture() {TagLib.Picture.CreateFromPath(Application.StartupPath & "\tmpcov.jpg")}
                 tf.Tag.Pictures(0).Type = TagLib.PictureType.FrontCover
 
-                'Dim atag As TagLib.Mpeg4.AppleTag = DirectCast(Tag, TagLib.Mpeg4.AppleTag)
-                'Dim newbox1 As New TagLib.Mpeg4.AppleDataBox(TagLib.ByteVector.FromString("TEST Long Description", TagLib.StringType.UTF8), CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsText))
-                'Dim newbox2 As New TagLib.Mpeg4.AppleDataBox(TagLib.ByteVector.FromString("TEST TV Show", TagLib.StringType.UTF8), CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsText))
-                'atag.SetData(BOXTYPE_LDES, New TagLib.Mpeg4.AppleDataBox() {newbox1})
-                'atag.SetData(BOXTYPE_TVSH, New TagLib.Mpeg4.AppleDataBox() {newbox2})
+                'Nun kommen die Custom-Tags 
+                Dim atag As TagLib.Mpeg4.AppleTag = TryCast(tf.GetTag(TagLib.TagTypes.Apple, True), TagLib.Mpeg4.AppleTag)
+
+                Dim b_rtng As TagLib.ReadOnlyByteVector = "rtng" 'ITUNESADVISORY
+                Dim b_cnID As TagLib.ReadOnlyByteVector = "cnID" 'ITUNESCATALOGID
+                Dim b_stik As TagLib.ReadOnlyByteVector = "stik" 'ITUNESMEDIATYPE
+
+                Dim i_rtng As Integer
+                Select Case .trackExplicitness
+                    Case "explicit"
+                        i_rtng = 4
+                    Case "cleaned"
+                        i_rtng = 2
+                    Case "notExplicit"
+                        i_rtng = 0
+                End Select
+
+                Dim i_stik As Integer = 1
+                Dim v_stik As New TagLib.ByteVector
+                v_stik.Add(CByte(1))
+
+                Dim v_rtng As New TagLib.ByteVector
+                v_rtng.Add(CByte(i_rtng))
+
+                Dim ab_rtng As New TagLib.Mpeg4.AppleDataBox(v_rtng, CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsData))
+                Dim ab_cnID As New TagLib.Mpeg4.AppleDataBox(TagLib.ByteVector.FromInt(.trackId), CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsText))
+                Dim ab_stik As New TagLib.Mpeg4.AppleDataBox(v_stik, CInt(TagLib.Mpeg4.AppleDataBox.FlagType.ContainsData))
+
+                atag.SetData(b_rtng, New TagLib.Mpeg4.AppleDataBox() {ab_rtng})
+                atag.SetData(b_cnID, New TagLib.Mpeg4.AppleDataBox() {ab_cnID})
+                atag.SetData(b_stik, New TagLib.Mpeg4.AppleDataBox() {ab_stik})
+
+                'atag.SetText(b_rtng, 1)
+                'An dieser Stelle wird das Compilation tag gesetzt
+                If .collectionArtistName = "Various Artists" Then
+                    atag.IsCompilation = True
+                Else
+                    atag.IsCompilation = False
+                End If
+
+
+
             End With
 
             tf.Save()
