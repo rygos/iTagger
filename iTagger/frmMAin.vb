@@ -10,6 +10,7 @@
             Dim oDir As IO.DirectoryInfo
             oDir = New IO.DirectoryInfo(fbd.SelectedPath)
             txtPath.Text = oDir.FullName
+            lvFiles.Items.Clear()
             FillList(oDir)
 
             setlblSelection(lvFiles.SelectedItems.Count, lvFiles.Items.Count)
@@ -24,8 +25,6 @@
     End Sub
 
     Private Sub FillList(odir As IO.DirectoryInfo)
-        lvFiles.Items.Clear()
-
         Dim oSubDir As IO.DirectoryInfo
         Dim oFile As IO.FileInfo
 
@@ -33,15 +32,18 @@
         ' zunächst alle Dateien des Ordners aufspüren
         For Each oFile In odir.GetFiles()
             If oFile.Extension = ".mp3" Or oFile.Extension = ".m4a" Then
-                With oFile
-                    Dim tf As TagLib.File = TagLib.File.Create(oFile.FullName)
-                    Dim com As String = tf.Tag.Comment
-                    If com <> "TagWithiTagger" Then
-                        lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
-                                   tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
-                                   tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
-                    End If
-                End With
+                If oFile.Name.StartsWith("._") = False Then
+                    With oFile
+                        Debug.Print(oFile.FullName)
+                        Dim tf As TagLib.File = TagLib.File.Create(oFile.FullName)
+                        Dim com As String = tf.Tag.Comment
+                        If com <> "TagWithiTagger" Then
+                            lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
+                                       tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
+                                       tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
+                        End If
+                    End With
+                End If
             End If
         Next
 
@@ -74,7 +76,10 @@
     End Sub
 
     Private Sub cmdReload_Click(sender As Object, e As EventArgs) Handles cmdReload.Click
-        Dim odir As IO.DirectoryInfo = New IO.DirectoryInfo(txtPath.Text)
-        FillList(odir)
+        If txtPath.Text <> vbNullString Or IO.Directory.Exists(txtPath.Text) = True Then
+            Dim odir As IO.DirectoryInfo = New IO.DirectoryInfo(txtPath.Text)
+            lvFiles.Items.Clear()
+            FillList(odir)
+        End If
     End Sub
 End Class
