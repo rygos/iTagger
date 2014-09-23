@@ -188,7 +188,7 @@ Module modAPI
                 With result.tracks(i)
                     .artistId = item("artistId").ToString
                     .artistiName = item("artistName").ToString
-                    .artistViewUrl = item("artistViewUrl").ToString
+                    .artistViewUrl = If(IsNothing(item("artistViewUrl")), "", item("artistViewUrl").ToString)
                     .artworkUrl100 = item("artworkUrl100").ToString
                     .artworkUrl600 = item("artworkUrl100").ToString.Replace("100x100", "600x600")
 

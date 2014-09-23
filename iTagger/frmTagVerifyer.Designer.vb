@@ -52,6 +52,7 @@ Partial Class frmTagVerifyer
         Me.cmdOK = New System.Windows.Forms.Button()
         Me.lvFilesContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TracknummerZuweisenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -198,6 +199,7 @@ Partial Class frmTagVerifyer
         Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
         Me.lvFiles.ContextMenuStrip = Me.lvFilesContext
         Me.lvFiles.FullRowSelect = True
+        Me.lvFiles.GridLines = True
         Me.lvFiles.LabelEdit = True
         Me.lvFiles.Location = New System.Drawing.Point(480, 19)
         Me.lvFiles.MultiSelect = False
@@ -218,12 +220,13 @@ Partial Class frmTagVerifyer
         '
         'ColumnHeader9
         '
-        Me.ColumnHeader9.Text = "ZielTrack"
+        Me.ColumnHeader9.Text = "Ziel Nummer"
         '
         'lvTracks
         '
-        Me.lvTracks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.lvTracks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader10})
         Me.lvTracks.FullRowSelect = True
+        Me.lvTracks.GridLines = True
         Me.lvTracks.Location = New System.Drawing.Point(9, 19)
         Me.lvTracks.MultiSelect = False
         Me.lvTracks.Name = "lvTracks"
@@ -280,13 +283,18 @@ Partial Class frmTagVerifyer
         '
         Me.lvFilesContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TracknummerZuweisenToolStripMenuItem})
         Me.lvFilesContext.Name = "lvFilesContext"
-        Me.lvFilesContext.Size = New System.Drawing.Size(201, 48)
+        Me.lvFilesContext.Size = New System.Drawing.Size(201, 26)
         '
         'TracknummerZuweisenToolStripMenuItem
         '
         Me.TracknummerZuweisenToolStripMenuItem.Name = "TracknummerZuweisenToolStripMenuItem"
         Me.TracknummerZuweisenToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
         Me.TracknummerZuweisenToolStripMenuItem.Text = "Tracknummer zuweisen"
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.DisplayIndex = 6
+        Me.ColumnHeader10.Text = "Nr."
         '
         'frmTagVerifyer
         '
@@ -339,4 +347,5 @@ Partial Class frmTagVerifyer
     Friend WithEvents cmdOK As System.Windows.Forms.Button
     Friend WithEvents lvFilesContext As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents TracknummerZuweisenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
 End Class
