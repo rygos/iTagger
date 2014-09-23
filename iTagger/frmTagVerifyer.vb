@@ -24,6 +24,7 @@ Public Class frmTagVerifyer
         txtArtist.Text = r.tracks(0).artistiName
         txtGenre.Text = r.tracks(0).primaryGenreName
         txtYear.Text = r.tracks(0).releaseDate
+        txtComment.Text = r.tracks(0).copyright
 
         'Füllen der Tag ListView
         For i = 1 To r.result_count - 1
@@ -83,7 +84,7 @@ Public Class frmTagVerifyer
                 tf.Tag.AlbumArtists = New String() {Tagdata.tracks(0).artistiName} 'Der AlbumArtist wird aus den AlbumInformationen geladen
                 tf.Tag.Performers = New String() {.artistiName}
                 tf.Tag.Comment = "TagWithiTagger"
-                tf.Tag.Copyright = .copyright
+                tf.Tag.Copyright = txtComment.Text
                 tf.Tag.Disc = .discNumber
                 tf.Tag.DiscCount = .discCount
                 If .primaryGenreName = vbNullString Then

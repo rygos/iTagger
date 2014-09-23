@@ -19,7 +19,6 @@
 
     Public Sub removeTaggedItems()
         For Each i In lvFiles.SelectedItems
-            Debug.Print(i.ToString)
             lvFiles.Items.Remove(i)
         Next
     End Sub
