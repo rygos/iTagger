@@ -38,19 +38,25 @@ Partial Class frmMAin
         Me.cmdGetTags = New System.Windows.Forms.Button()
         Me.lblSelection = New System.Windows.Forms.Label()
         Me.cmdReload = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.DateiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ÜberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BeendenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ALACEncoderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtPath
         '
         Me.txtPath.Enabled = False
-        Me.txtPath.Location = New System.Drawing.Point(12, 14)
+        Me.txtPath.Location = New System.Drawing.Point(12, 35)
         Me.txtPath.Name = "txtPath"
         Me.txtPath.Size = New System.Drawing.Size(294, 20)
         Me.txtPath.TabIndex = 0
         '
         'cmdOpenPath
         '
-        Me.cmdOpenPath.Location = New System.Drawing.Point(312, 12)
+        Me.cmdOpenPath.Location = New System.Drawing.Point(312, 33)
         Me.cmdOpenPath.Name = "cmdOpenPath"
         Me.cmdOpenPath.Size = New System.Drawing.Size(48, 23)
         Me.cmdOpenPath.TabIndex = 1
@@ -62,7 +68,7 @@ Partial Class frmMAin
         Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
         Me.lvFiles.FullRowSelect = True
         Me.lvFiles.GridLines = True
-        Me.lvFiles.Location = New System.Drawing.Point(12, 40)
+        Me.lvFiles.Location = New System.Drawing.Point(12, 61)
         Me.lvFiles.Name = "lvFiles"
         Me.lvFiles.Size = New System.Drawing.Size(697, 439)
         Me.lvFiles.TabIndex = 2
@@ -107,7 +113,7 @@ Partial Class frmMAin
         '
         'cmdGetTags
         '
-        Me.cmdGetTags.Location = New System.Drawing.Point(610, 485)
+        Me.cmdGetTags.Location = New System.Drawing.Point(610, 506)
         Me.cmdGetTags.Name = "cmdGetTags"
         Me.cmdGetTags.Size = New System.Drawing.Size(99, 23)
         Me.cmdGetTags.TabIndex = 3
@@ -117,7 +123,7 @@ Partial Class frmMAin
         'lblSelection
         '
         Me.lblSelection.AutoSize = True
-        Me.lblSelection.Location = New System.Drawing.Point(9, 485)
+        Me.lblSelection.Location = New System.Drawing.Point(9, 506)
         Me.lblSelection.Name = "lblSelection"
         Me.lblSelection.Size = New System.Drawing.Size(150, 13)
         Me.lblSelection.TabIndex = 4
@@ -125,26 +131,64 @@ Partial Class frmMAin
         '
         'cmdReload
         '
-        Me.cmdReload.Location = New System.Drawing.Point(366, 12)
+        Me.cmdReload.Location = New System.Drawing.Point(366, 33)
         Me.cmdReload.Name = "cmdReload"
         Me.cmdReload.Size = New System.Drawing.Size(75, 23)
         Me.cmdReload.TabIndex = 5
         Me.cmdReload.Text = "Reload"
         Me.cmdReload.UseVisualStyleBackColor = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiToolStripMenuItem, Me.ALACEncoderToolStripMenuItem, Me.ÜberToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(721, 24)
+        Me.MenuStrip1.TabIndex = 6
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'DateiToolStripMenuItem
+        '
+        Me.DateiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BeendenToolStripMenuItem})
+        Me.DateiToolStripMenuItem.Name = "DateiToolStripMenuItem"
+        Me.DateiToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.DateiToolStripMenuItem.Text = "&Datei"
+        '
+        'ÜberToolStripMenuItem
+        '
+        Me.ÜberToolStripMenuItem.Name = "ÜberToolStripMenuItem"
+        Me.ÜberToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.ÜberToolStripMenuItem.Text = "&Über"
+        '
+        'BeendenToolStripMenuItem
+        '
+        Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
+        Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BeendenToolStripMenuItem.Text = "&Beenden"
+        '
+        'ALACEncoderToolStripMenuItem
+        '
+        Me.ALACEncoderToolStripMenuItem.Name = "ALACEncoderToolStripMenuItem"
+        Me.ALACEncoderToolStripMenuItem.Size = New System.Drawing.Size(97, 20)
+        Me.ALACEncoderToolStripMenuItem.Text = "ALAC-Encoder"
+        '
         'frmMAin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(721, 523)
+        Me.ClientSize = New System.Drawing.Size(721, 540)
         Me.Controls.Add(Me.cmdReload)
         Me.Controls.Add(Me.lblSelection)
         Me.Controls.Add(Me.cmdGetTags)
         Me.Controls.Add(Me.lvFiles)
         Me.Controls.Add(Me.cmdOpenPath)
         Me.Controls.Add(Me.txtPath)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMAin"
         Me.Text = "iTagger"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -165,5 +209,10 @@ Partial Class frmMAin
     Friend WithEvents cmdGetTags As System.Windows.Forms.Button
     Friend WithEvents lblSelection As System.Windows.Forms.Label
     Friend WithEvents cmdReload As System.Windows.Forms.Button
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents DateiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BeendenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ÜberToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ALACEncoderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

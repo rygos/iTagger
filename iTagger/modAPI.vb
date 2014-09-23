@@ -228,7 +228,7 @@ Module modAPI
                     .primaryGenreName = If(IsNothing(item("primaryGenreName")), "", item("primaryGenreName").ToString)
                     .releaseDate = item("releaseDate").ToString
                     .trackCensoredName = If(IsNothing(item("trackCensoredName")), "", item("trackCensoredName").ToString)
-                    .trackCount = If(IsNothing(item("trackCount")), "", item("trackCount").ToString)
+                    .trackCount = If(IsNothing(item("trackCount")), 0, item("trackCount").ToString)
                     .trackExplicitness = If(IsNothing(item("trackExplicitness")), "", item("trackExplicitness").ToString)
                     .trackId = If(IsNothing(item("trackId")), 0, CInt(item("trackId").ToString))
                     .trackName = If(IsNothing(item("trackName")), "", item("trackName").ToString)

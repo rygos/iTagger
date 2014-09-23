@@ -82,4 +82,8 @@
             FillList(odir)
         End If
     End Sub
+
+    Private Sub BeendenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BeendenToolStripMenuItem.Click
+        End
+    End Sub
 End Class
