@@ -23,7 +23,7 @@ Public Class frmTagVerifyer
 
         'Füllen der Tag ListView
         For i = 1 To r.result_count - 1
-            lvwAddItem(lvTracks, r.tracks(i).artistiName, r.tracks(i).trackName, TimeSpan.FromMilliseconds(r.tracks(i).trackTimeMillis).ToString, r.tracks(i).trackNumber, r.tracks(i).discNumber, r.tracks(i).primaryGenreName, i)
+            lvwAddItem(lvTracks, r.tracks(i).artistiName, r.tracks(i).trackCensoredName, TimeSpan.FromMilliseconds(r.tracks(i).trackTimeMillis).ToString, r.tracks(i).trackNumber, r.tracks(i).discNumber, r.tracks(i).primaryGenreName, i)
         Next
 
         'Füllen der Files ListView
@@ -60,7 +60,7 @@ Public Class frmTagVerifyer
                     tf.Tag.Genres = New String() {.primaryGenreName}
                 End If
 
-                tf.Tag.Title = .trackName
+                tf.Tag.Title = .trackCensoredName
                 tf.Tag.Track = .trackNumber
                 tf.Tag.TrackCount = .trackCount
                 tf.Tag.Year = .releaseDate.Year
