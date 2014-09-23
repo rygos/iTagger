@@ -86,4 +86,8 @@
     Private Sub BeendenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BeendenToolStripMenuItem.Click
         End
     End Sub
+
+    Private Sub ALACEncoderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ALACEncoderToolStripMenuItem.Click
+        frmEncoder.Show()
+    End Sub
 End Class

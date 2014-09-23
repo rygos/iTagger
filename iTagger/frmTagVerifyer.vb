@@ -1,8 +1,12 @@
 ﻿Imports System.IO
+Imports System.ComponentModel
 
 Public Class frmTagVerifyer
     Dim Tagdata As str_search_result
     Dim AlbumGenre As String
+
+    Dim WithEvents bw As New BackgroundWorker
+    Dim bw_fileNumber() As Integer
     Private Sub frmTagVerifyer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -41,11 +45,36 @@ Public Class frmTagVerifyer
     End Sub
 
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
+        ReDim bw_fileNumber(lvFiles.Items.Count - 1)
 
         For i = 0 To lvFiles.Items.Count - 1
+            bw_fileNumber(i) = CInt(lvFiles.Items(i).SubItems(2).Text)
+        Next
+
+        pbProgress.Maximum = bw_fileNumber.Length - 1
+
+        bw.WorkerReportsProgress = True
+        bw.RunWorkerAsync()
+
+    End Sub
+
+    Private Sub TracknummerZuweisenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TracknummerZuweisenToolStripMenuItem.Click
+        Dim TrackNum As String = InputBox("Bitte hier die Tracknummer eingeben:", "Neue Tracknummer zuweisen...")
+        If TrackNum = vbNullString Then
+
+        Else
+            lvFiles.SelectedItems(0).SubItems(2).Text = TrackNum
+        End If
+
+
+    End Sub
+
+    Private Sub bw_DoWork(sender As Object, e As DoWorkEventArgs) Handles bw.DoWork
+
+        For i = 0 To bw_fileNumber.Length - 1
             TagLib.ByteVector.UseBrokenLatin1Behavior = True
             Dim tf As TagLib.File = TagLib.File.Create(selectedFiles(i))
-            Dim tn As Integer = CInt(lvFiles.Items(i).SubItems(2).Text)
+            Dim tn As Integer = CInt(bw_fileNumber(i))
             With Tagdata.tracks(tn)
                 tf.Tag.Album = .collectionCensoredName
                 tf.Tag.AlbumArtists = New String() {Tagdata.tracks(0).artistiName} 'Der AlbumArtist wird aus den AlbumInformationen geladen
@@ -115,21 +144,17 @@ Public Class frmTagVerifyer
 
             tf.Save()
             tf.Dispose()
+
+            bw.ReportProgress(i)
         Next
-
-        frmMAin.removeTaggedItems()
-        Me.Close()
-
     End Sub
 
-    Private Sub TracknummerZuweisenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TracknummerZuweisenToolStripMenuItem.Click
-        Dim TrackNum As String = InputBox("Bitte hier die Tracknummer eingeben:", "Neue Tracknummer zuweisen...")
-        If TrackNum = vbNullString Then
+    Private Sub bw_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles bw.ProgressChanged
+        pbProgress.Value = e.ProgressPercentage
+    End Sub
 
-        Else
-            lvFiles.SelectedItems(0).SubItems(2).Text = TrackNum
-        End If
-
-
+    Private Sub bw_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bw.RunWorkerCompleted
+        frmMAin.removeTaggedItems()
+        Me.Close()
     End Sub
 End Class

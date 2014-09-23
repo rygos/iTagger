@@ -41,6 +41,8 @@ Partial Class frmTagVerifyer
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lvFilesContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.TracknummerZuweisenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lvTracks = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -48,11 +50,10 @@ Partial Class frmTagVerifyer
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdCancel = New System.Windows.Forms.Button()
         Me.cmdOK = New System.Windows.Forms.Button()
-        Me.lvFilesContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.TracknummerZuweisenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.pbProgress = New System.Windows.Forms.ProgressBar()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.picCover, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,6 +91,7 @@ Partial Class frmTagVerifyer
         '
         'txtComment
         '
+        Me.txtComment.Enabled = False
         Me.txtComment.Location = New System.Drawing.Point(94, 123)
         Me.txtComment.Multiline = True
         Me.txtComment.Name = "txtComment"
@@ -222,6 +224,18 @@ Partial Class frmTagVerifyer
         '
         Me.ColumnHeader9.Text = "Ziel Nummer"
         '
+        'lvFilesContext
+        '
+        Me.lvFilesContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TracknummerZuweisenToolStripMenuItem})
+        Me.lvFilesContext.Name = "lvFilesContext"
+        Me.lvFilesContext.Size = New System.Drawing.Size(201, 26)
+        '
+        'TracknummerZuweisenToolStripMenuItem
+        '
+        Me.TracknummerZuweisenToolStripMenuItem.Name = "TracknummerZuweisenToolStripMenuItem"
+        Me.TracknummerZuweisenToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.TracknummerZuweisenToolStripMenuItem.Text = "Tracknummer zuweisen"
+        '
         'lvTracks
         '
         Me.lvTracks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader10})
@@ -261,6 +275,10 @@ Partial Class frmTagVerifyer
         '
         Me.ColumnHeader6.Text = "Genre"
         '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "Nr."
+        '
         'cmdCancel
         '
         Me.cmdCancel.Location = New System.Drawing.Point(12, 532)
@@ -279,28 +297,19 @@ Partial Class frmTagVerifyer
         Me.cmdOK.Text = "OK"
         Me.cmdOK.UseVisualStyleBackColor = True
         '
-        'lvFilesContext
+        'pbProgress
         '
-        Me.lvFilesContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TracknummerZuweisenToolStripMenuItem})
-        Me.lvFilesContext.Name = "lvFilesContext"
-        Me.lvFilesContext.Size = New System.Drawing.Size(201, 26)
-        '
-        'TracknummerZuweisenToolStripMenuItem
-        '
-        Me.TracknummerZuweisenToolStripMenuItem.Name = "TracknummerZuweisenToolStripMenuItem"
-        Me.TracknummerZuweisenToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.TracknummerZuweisenToolStripMenuItem.Text = "Tracknummer zuweisen"
-        '
-        'ColumnHeader10
-        '
-        Me.ColumnHeader10.DisplayIndex = 6
-        Me.ColumnHeader10.Text = "Nr."
+        Me.pbProgress.Location = New System.Drawing.Point(93, 532)
+        Me.pbProgress.Name = "pbProgress"
+        Me.pbProgress.Size = New System.Drawing.Size(599, 23)
+        Me.pbProgress.TabIndex = 5
         '
         'frmTagVerifyer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(787, 564)
+        Me.Controls.Add(Me.pbProgress)
         Me.Controls.Add(Me.cmdOK)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.GroupBox3)
@@ -348,4 +357,5 @@ Partial Class frmTagVerifyer
     Friend WithEvents lvFilesContext As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents TracknummerZuweisenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents pbProgress As System.Windows.Forms.ProgressBar
 End Class
