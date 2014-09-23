@@ -45,6 +45,9 @@ Public Class frmTagVerifyer
     End Sub
 
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
+        cmdOK.Enabled = False
+        cmdCancel.Enabled = False
+
         ReDim bw_fileNumber(lvFiles.Items.Count - 1)
 
         For i = 0 To lvFiles.Items.Count - 1

@@ -88,6 +88,13 @@
     End Sub
 
     Private Sub ALACEncoderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ALACEncoderToolStripMenuItem.Click
-        frmEncoder.Show()
+        If IO.File.Exists(Application.StartupPath & "\qaac\qaac.exe") = True Then
+            frmEncoder.Show()
+        Else
+            MsgBox("Für den Encoder ist die Applikation qaac.exe notwendig. Diese muss in den folgenden Ordner vorhanden sein.", MsgBoxStyle.Critical, "qaac.exe fehlt...")
+            IO.Directory.CreateDirectory(Application.StartupPath & "\qaac")
+            Shell("explorer.exe " & Application.StartupPath & "\qaac\")
+        End If
+
     End Sub
 End Class
