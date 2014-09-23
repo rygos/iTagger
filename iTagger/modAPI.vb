@@ -73,7 +73,7 @@ Module modAPI
             sURL = sURL & "&term=" & (sTerm)
         End If
 
-        sURL = sURL & "&country=" & sCountry & "&limit=" & iLimit & "&entity=" & sEntity
+        sURL = sURL & "&country=" & sCountry & "&limit=" & iLimit & "&entity=" & sEntity & "&limit=200"
 
         Debug.Print(sURL)
 
@@ -168,7 +168,7 @@ Module modAPI
             sURL = sURL & "&id=" & (sTerm)
         End If
 
-        sURL = sURL & "&country=" & sCountry & "&entity=song"
+        sURL = sURL & "&country=" & sCountry & "&entity=song&limit=200"
 
         Debug.Print(sURL)
 
