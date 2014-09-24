@@ -159,6 +159,7 @@ Public Class frmTagVerifyer
 
     Private Sub bw_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bw.RunWorkerCompleted
         frmMAin.removeTaggedItems()
+        frmMAin.cmdGetTags.Enabled = True
         Me.Close()
     End Sub
 End Class
