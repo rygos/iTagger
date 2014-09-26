@@ -30,17 +30,22 @@
 
         ' zunächst alle Dateien des Ordners aufspüren
         For Each oFile In odir.GetFiles()
-            If oFile.Extension = ".mp3" Or oFile.Extension = ".m4a" Then
+            If oFile.Extension = ".m4a" Or oFile.Extension = ".mp4" Then
                 If oFile.Name.StartsWith("._") = False Then
                     With oFile
-                        Debug.Print(oFile.FullName)
-                        Dim tf As TagLib.File = TagLib.File.Create(oFile.FullName)
-                        Dim com As String = tf.Tag.Comment
-                        If com <> "TagWithiTagger" Then
-                            lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
-                                       tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
-                                       tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
-                        End If
+                        Try
+                            Debug.Print(oFile.FullName)
+                            Dim tf As TagLib.File = TagLib.File.Create(oFile.FullName)
+                            Dim com As String = tf.Tag.Comment
+                            If com <> "TagWithiTagger" Then
+                                lvwAddItem(lvFiles, tf.Tag.FirstPerformer, tf.Tag.Title, tf.Length, tf.Tag.Album, _
+                                           tf.Tag.Track & "/" & tf.Tag.TrackCount, tf.Tag.Disc & "/" & tf.Tag.DiscCount, _
+                                           tf.Tag.FirstGenre, oFile.FullName, tf.Tag.Comment)
+                            End If
+                        Catch ex As Exception
+
+                        End Try
+
                     End With
                 End If
             End If
